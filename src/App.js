@@ -1,7 +1,15 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  React.useEffect(() => {
+  fetch('/api/getPrivateRepos')
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+}, []);
+
   return (
     <div className="App">
       <header className="App-header">
